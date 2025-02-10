@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkedAlt, FaBirthdayCa
 
 const ProfileCard = () => {
     return (
-        <div className="bg-[#131312] border border-[#B7A261] rounded-xl p-6 text-center w-80 shadow-lg flex flex-col items-center">
+        <div className="bg-white dark:bg-[#131312] border border-[#B7A261] rounded-xl p-6 text-center w-80 shadow-lg flex flex-col items-center">
             <div className="w-28 h-28 rounded-full border-4 border-[#B7A261] overflow-hidden">
                 <Image
                     src="/avatar.jpg"
