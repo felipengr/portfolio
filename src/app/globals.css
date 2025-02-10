@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Tema Claro */
+  --background: #FEF6DD;   /* Cor de fundo clara */
+  --foreground: #B7A261;    /* Cor de texto escura */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Tema Escuro */
+html.dark {
+  --background: #131312;   /* Cor de fundo escura */
+  --foreground: #4B3D10;    /* Cor de texto clara */
 }
 
 body {
