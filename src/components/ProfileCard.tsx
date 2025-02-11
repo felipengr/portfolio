@@ -75,10 +75,6 @@ const ProfileCard = () => {
                     <span>01/19/1994</span>
                 </div>
             </div>
-
-            <button className="mt-4 bg-[#B7A261] dark:bg-[#4B3D10] text-white py-2 px-4 rounded-lg hover:opacity-80">
-                View Resume
-            </button>
         </div>
     )
 }
