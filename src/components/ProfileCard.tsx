@@ -4,19 +4,19 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkedAlt, FaBirthdayCa
 
 const ProfileCard = () => {
     return (
-        <div className="bg-white dark:bg-[#131312] border border-[#B7A261] rounded-xl p-6 text-center w-80 shadow-lg flex flex-col items-center">
-            <div className="w-28 h-28 rounded-full border-4 border-[#B7A261] overflow-hidden">
+        <div className="relative bg-white dark:bg-[#131312] border-2 border-[#B7A261] rounded-xl p-6 text-center w-80 shadow-lg flex flex-col items-center">
+            <div className="absolute left-1/2 -top-12 -translate-x-1/2 w-[200px] h-[200px] rounded-lg border-4 border-[#B7A261] overflow-hidden">
                 <Image
                     src="/avatar.jpg"
                     alt="Avatar"
-                    width={112}
-                    height={112}
-                    className="object-cover h-full w-full"
+                    width={200}
+                    height={200}
+                    className="object-cover h-[200px] w-[200px]"
                     priority
                 />
             </div>
 
-            <div className="text-center mt-4">
+            <div className="text-center mt-36">
                 <h2 className="text-2xl font-bold text-[#4b3d10] dark:text-[#b7a261]">
                     Felipe Nogueira
                 </h2>
