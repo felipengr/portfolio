@@ -2,6 +2,11 @@
 
 import React from "react";
 import Image from "next/image";
+import { FcAndroidOs  } from "react-icons/fc";
+import { FaReact } from "react-icons/fa";
+import { LiaNode } from "react-icons/lia";
+import { SiNextdotjs, SiExpo } from "react-icons/si";
+import { GrGraphQl } from "react-icons/gr";
 
 const contentData = {
     about: (
@@ -272,8 +277,50 @@ const contentData = {
     ),
     skills: (
         <div>
-          <h2 className="text-xl font-bold">Skills</h2>
-          <p>Conhecimento avançado em JavaScript, TypeScript, Tailwind CSS, VTEX IO, e mais.</p>
+            <h2 className="text-xl text-black dark:text-white font-bold">Skills</h2>
+            <div className="flex flex-wrap gap-6 w-full mt-9">
+                <div className="flex flex-col gap-2 items-center justify-center ">
+                    <div className="border rounded-md border-[#B7A261] dark:border-[#4B3D10] shadow-[0px_0px_8px_2px_#F8DF91] dark:shadow-[0px_0px_8px_2px_#EFE0B2] p-4 ">
+                        <FcAndroidOs width={60} height={60} widths={60} className="w-14 h-14" />
+                    </div>
+                    <p className="text-black dark:text-white font-semibold">Android</p>
+                </div>
+
+                <div className="flex flex-col gap-2 items-center justify-center ">
+                    <div className="border rounded-md border-[#B7A261] dark:border-[#4B3D10] shadow-[0px_0px_8px_2px_#F8DF91] dark:shadow-[0px_0px_8px_2px_#EFE0B2] p-4 ">
+                        <FaReact width={60} height={60} widths={60} className="w-14 h-14 text-[#61DAFB]" />
+                    </div>
+                    <p className="text-black dark:text-white font-semibold">React</p>
+                </div>
+
+                <div className="flex flex-col gap-2 items-center justify-center ">
+                    <div className="border rounded-md border-[#B7A261] dark:border-[#4B3D10] shadow-[0px_0px_8px_2px_#F8DF91] dark:shadow-[0px_0px_8px_2px_#EFE0B2] p-4 ">
+                        <LiaNode width={60} height={60} widths={60} className="w-14 h-14 text-[#8bc500]" />
+                    </div>
+                    <p className="text-black dark:text-white font-semibold">Node Js</p>
+                </div>
+
+                <div className="flex flex-col gap-2 items-center justify-center ">
+                    <div className="border rounded-md border-[#B7A261] dark:border-[#4B3D10] shadow-[0px_0px_8px_2px_#F8DF91] dark:shadow-[0px_0px_8px_2px_#EFE0B2] p-4 ">
+                        <SiNextdotjs width={60} height={60} widths={60} className="w-14 h-14 text-[#000] dark:text-white" />
+                    </div>
+                    <p className="text-black dark:text-white font-semibold">Next.js</p>
+                </div>
+
+                <div className="flex flex-col gap-2 items-center justify-center ">
+                    <div className="border rounded-md border-[#B7A261] dark:border-[#4B3D10] shadow-[0px_0px_8px_2px_#F8DF91] dark:shadow-[0px_0px_8px_2px_#EFE0B2] p-4 ">
+                        <SiExpo width={60} height={60} widths={60} className="w-14 h-14 text-[#000] dark:text-white" />
+                    </div>
+                    <p className="text-black dark:text-white font-semibold">Expo</p>
+                </div>
+
+                <div className="flex flex-col gap-2 items-center justify-center ">
+                    <div className="border rounded-md border-[#B7A261] dark:border-[#4B3D10] shadow-[0px_0px_8px_2px_#F8DF91] dark:shadow-[0px_0px_8px_2px_#EFE0B2] p-4 ">
+                        <GrGraphQl width={60} height={60} widths={60} className="w-14 h-14 text-[#f6009b]" />
+                    </div>
+                    <p className="text-black dark:text-white font-semibold">GraphQL</p>
+                </div>
+            </div>
         </div>
     ),
     contact: (

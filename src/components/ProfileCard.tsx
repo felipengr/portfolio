@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkedAlt, FaBirthdayCake } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkedAlt, FaBirthdayCake, FaInstagram } from "react-icons/fa";
 
 const ProfileCard = () => {
     return (
@@ -42,6 +42,15 @@ const ProfileCard = () => {
                     rel="noopener noreferrer"
                 >
                     <FaLinkedin size={24} />
+                </a>
+
+                <a
+                    href="https://www.instagram.com/flpnogueira/"
+                    className="text-[#4B3D10] hover:text-[#B7A261] dark:text-[#B7A261] dark:hover:text-[#4B3D10]"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <FaInstagram size={24} />
                 </a>
 
                 <a
