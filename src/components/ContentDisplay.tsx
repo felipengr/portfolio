@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FcAndroidOs } from "react-icons/fc";
 import {
   FaReact,
@@ -61,6 +61,14 @@ interface ContentDisplayProps {
 const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 800)
+  }, [activeSection])
 
   const handleSubmit = async (data: { email: string; subject: string; message: string }) => {
     setIsSubmitting(true);
@@ -137,24 +145,28 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             altText="Work in computer"
             title="Web Front-End Development"
             description="With a robust proficiency in React.js, I excel at transforming design concepts into dynamic, user-friendly websites."
+            isLoading={isLoading}
           />
           <FeatureCard
             imageSrc="/app-developer.jpg"
             altText="Work in phone"
             title="App Development"
             description="With expertise in React Native, I transform design concepts into high-performance, user-friendly apps."
+            isLoading={isLoading}
           />
           <FeatureCard
             imageSrc="/back-end.jpg"
             altText="Back-end Development"
             title="Back-End Development"
             description="With expertise in Node.js and GraphQL, I build scalable, efficient, and high-performance back-end systems."
+            isLoading={isLoading}
           />
           <FeatureCard
             imageSrc="/vtex.jpg"
             altText="VTEX Development"
             title="VTEX Development"
             description="With expertise in VTEX and e-commerce, I develop scalable, high-performing online stores."
+            isLoading={isLoading}
           />
         </div>
       </div>
@@ -187,6 +199,7 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             company="Reserva"
             role="Full Stack Developer"
             duration="Jun / 2022 - At the moment"
+            isLoading={isLoading}
           />
           <ExperienceCard
             logoSrc="/cadastra_logo.jpg"
@@ -194,6 +207,7 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             company="Cadastra"
             role="Front-End Developer Specialist"
             duration="Jun / 2022 - At the moment"
+            isLoading={isLoading}
           />
           <ExperienceCard
             logoSrc="/corebiz.jpg"
@@ -201,6 +215,7 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             company="Corebiz"
             role="Front-End Developer"
             duration="Mar / 2021 - Jun / 2022 (1 Year and 4 Months)"
+            isLoading={isLoading}
           />
         </div>
       </div>
@@ -217,24 +232,28 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             imageSrc="/nearby.jpg"
             altText="Nearby App"
             title="Nearby App (React Native)"
+            isLoading={isLoading}
           />
           <ProjectCard
             href="https://github.com/felipengr/DT-Money"
             imageSrc="/dtMoney.jpg"
             altText="DT Money"
             title="DT Money (React + Typescript)"
+            isLoading={isLoading}
           />
           <ProjectCard
             href="https://github.com/felipengr/igniteTeams"
             imageSrc="/igniteTeams.jpg"
             altText="Ignite Teams"
             title="Ignite Teams (React + Typescript)"
+            isLoading={isLoading}
           />
           <ProjectCard
             href="https://github.com/felipengr/daily-diet"
             imageSrc="/dailyDiet.jpg"
             altText="Daily Diet"
             title="Daily Diet (React + Typescript)"
+            isLoading={isLoading}
           />
         </div>
       </div>
