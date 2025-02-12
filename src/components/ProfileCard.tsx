@@ -1,23 +1,68 @@
 import React from "react";
 import Image from "next/image";
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaMapMarkedAlt, FaBirthdayCake, FaInstagram } from "react-icons/fa";
+import {
+    FaGithub,
+    FaLinkedin,
+    FaEnvelope,
+    FaPhone,
+    FaMapMarkedAlt,
+    FaBirthdayCake,
+    FaInstagram,
+} from "react-icons/fa";
 
 const ProfileCard = () => {
-    return (
-        <div className="relative bg-white dark:bg-[#131312] border-2 border-[#B7A261] rounded-xl p-6 text-center w-80 shadow-lg flex flex-col items-center">
-            <div className="absolute left-1/2 -top-12 -translate-x-1/2 w-[200px] h-[200px] rounded-lg border-4 border-[#B7A261] overflow-hidden">
-                <Image
-                    src="/avatar.jpg"
-                    alt="Avatar"
-                    width={200}
-                    height={200}
-                    className="object-cover h-[200px] w-[200px]"
-                    priority
-                />
-            </div>
+    const ICON_SIZE = 16;
 
-            <div className="text-center mt-36">
-                <h2 className="text-2xl font-bold text-[#4b3d10] dark:text-[#b7a261]">
+    return (
+        <div
+            className={`
+                relative
+                bg-white 
+                dark:bg-[#131312] 
+                border-2 
+                border-[#B7A261] 
+                rounded-xl 
+                p-4             
+                sm:p-6          
+                text-center 
+                shadow-lg 
+                flex 
+                flex-col 
+                items-center
+                md:w-80
+                mt-6
+                sm:mt-0
+            `}
+        >
+                <div className = {`
+                    relative
+                    w-[150px]
+                    h-[150px]
+                    mb-2
+                    sm:mb-6
+                    rounded-lg
+                    border-4
+                    border-[#B7A261]
+                    overflow-hidden
+                    md:absolute
+                    md:left-1/2
+                    md:-top-12
+                    md:-translate-x-1/2
+                    md:w-[200px]
+                    md:h-[200px]
+                 `}>
+        <Image
+          src="/avatar.jpg"
+          alt="Avatar"
+          width={200}
+          height={200}
+          className="object-cover h-full w-full"
+          priority
+        />
+      </div>
+       
+            <div className="text-center mt-4 sm:mt-36">
+                <h2 className="text-xl sm:text-2xl font-bold text-[#4b3d10] dark:text-[#b7a261]">
                     Felipe Nogueira
                 </h2>
                 <p className="text-sm text-gray-600 dark:text-gray-400">
@@ -65,27 +110,27 @@ const ProfileCard = () => {
 
             <div className="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
                 <div className="flex items-center gap-2 text-[#4b3d10] dark:text-[#b7a261]">
-                    <FaPhone size={16} />
+                    <FaPhone size={ICON_SIZE} />
                     <span>+55 11 97408-4935</span>
                 </div>
 
                 <div className="flex items-center gap-2 text-[#4b3d10] dark:text-[#b7a261]">
-                    <FaEnvelope size={16} />
+                    <FaEnvelope size={ICON_SIZE} />
                     <span>felipenogueira.94@gmail.com</span>
                 </div>
 
                 <div className="flex items-center gap-2 text-[#4b3d10] dark:text-[#b7a261]">
-                    <FaMapMarkedAlt size={16} />
+                    <FaMapMarkedAlt size={ICON_SIZE} />
                     <span>Piracaia, SP - Brazil</span>
                 </div>
 
                 <div className="flex items-center gap-2 text-[#4b3d10] dark:text-[#b7a261]">
-                    <FaBirthdayCake size={16} />
+                    <FaBirthdayCake size={ICON_SIZE} />
                     <span>01/19/1994</span>
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default ProfileCard;

@@ -19,19 +19,37 @@ interface MenuProps {
 
 const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
   return (
-    <nav className="flex h-fit flex-col items-center justify-center p-4 gap-6 rounded-xl bg-white dark:bg-black shadow-md border-2 border-[#B7A261]">
+    <nav
+      className={clsx(
+        "flex items-center justify-center p-4 rounded-xl bg-white dark:bg-black shadow-md border-2 border-[#B7A261]",
+        "flex-row md:flex-col",
+        "gap-2 md:gap-6",
+        "w-full md:w-auto",
+        "overflow-x-auto scrollbar-hide"
+      )}
+    >
       {menuItems.map((item) => (
         <button
           key={item.id}
           className={clsx(
-            "flex flex-col items-center justify-center text-sm gap-2 px-4 py-2 rounded-lg transition-all w-[81px] h-[76px]",
+            "flex flex-col items-center justify-center text-sm gap-2 px-3 py-2 rounded-lg transition-all",
+            "w-[65px] min-w-[65px] h-[65px] md:w-[81px] md:h-[76px]",
             active === item.id
               ? "bg-[#B7A261] text-white dark:text-black"
-              : "bg-[#FEF6DD] dark:bg-[#3B3729] text-black dark:text-[#A89D9D]"
+              : "bg-[#FEF6DD] dark:bg-[#3B3729] text-black dark:text-[#A89D9D]",
+            active === item.id ? "flex items-center justify-center" : ""
           )}
           onClick={() => setActive(item.id)}
         >
-          {item.icon} {item.label}
+          {item.icon}
+          {item.id === "experience" ? (
+            <>
+              <span className="md:hidden">Exp.</span>
+              <span className="hidden md:block">{item.label}</span>
+            </>
+          ) : (
+            <span>{item.label}</span>
+          )}
         </button>
       ))}
     </nav>
