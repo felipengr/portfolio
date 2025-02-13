@@ -13,7 +13,7 @@ const MainContent = () => {
       className={`
         w-full
         flex 
-        items-center // REMOVER AQUI
+        items-center
         justify-center 
         flex-col               
         sm:flex-row-reverse              
