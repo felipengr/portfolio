@@ -9,6 +9,7 @@ interface FeatureCardProps {
   title: string;
   description: string;
   isLoading?: boolean;
+  priority: boolean;
 }
 
 const PRIMARY_COLOR = "#B7A261";
@@ -21,6 +22,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
   title,
   description,
   isLoading = false,
+  priority = false,
 }) => {
   return (
     <div
@@ -37,10 +39,11 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
             sizes="(max-width: 768px) 100vw, 116px"
             style={{ objectFit: "cover" }}
             className="object-top"
+            priority={priority}
           />
         )}
       </div>
-      <div className="p-4 flex flex-col justify-between h-full">
+      <div className="p-4 flex flex-col justify-start h-full">
         <div>
           {isLoading ? (
             <Skeleton width={150} />

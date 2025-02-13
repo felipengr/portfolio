@@ -130,6 +130,7 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             title="Web Front-End Development"
             description="With a robust proficiency in React.js, I excel at transforming design concepts into dynamic, user-friendly websites."
             isLoading={isLoading}
+            priority={true}
           />
           <FeatureCard
             imageSrc="/app-developer.jpg"
@@ -137,6 +138,7 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             title="App Development"
             description="With expertise in React Native, I transform design concepts into high-performance, user-friendly apps."
             isLoading={isLoading}
+            priority={true}
           />
           <FeatureCard
             imageSrc="/back-end.jpg"
@@ -144,6 +146,7 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             title="Back-End Development"
             description="With expertise in Node.js and GraphQL, I build scalable, efficient, and high-performance back-end systems."
             isLoading={isLoading}
+            priority={true}
           />
           <FeatureCard
             imageSrc="/vtex.jpg"
@@ -151,6 +154,7 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             title="VTEX Development"
             description="With expertise in VTEX and e-commerce, I develop scalable, high-performing online stores."
             isLoading={isLoading}
+            priority={true}
           />
         </div>
       </div>
