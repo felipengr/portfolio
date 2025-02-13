@@ -21,7 +21,7 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
   return (
     <nav
       className={clsx(
-        "flex items-center justify-center p-2 sm:p-4 rounded-xl bg-white dark:bg-[#131312] shadow-md border-2 border-[#B7A261] mx-auto",
+        "flex items-center justify-center p-2 sm:p-4 rounded-xl bg-white dark:bg-[#131312] shadow-md border-2 border-[#B7A261] mx-auto sm:overflow-visible",
         "flex-row md:flex-col",
         "gap-2 md:gap-6",
         "md:w-auto",
