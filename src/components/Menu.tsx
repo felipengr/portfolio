@@ -21,14 +21,14 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
   return (
     <nav
       className={clsx(
-        "flex items-center justify-center p-3 sm:p-4 rounded-xl bg-white dark:bg-[#131312] shadow-md border-2 border-[#B7A261] mx-auto",
+        "flex items-center justify-center p-2 sm:p-4 rounded-xl bg-white dark:bg-[#131312] shadow-md border-2 border-[#B7A261] mx-auto",
         "flex-row md:flex-col",
         "gap-2 md:gap-6",
         "md:w-auto",
         "overflow-x-auto scrollbar-hide"
       )}
     >
-      {menuItems.map((item, index) => (
+      {menuItems.map((item) => (
         <button
           key={item.id}
           className={clsx(
@@ -37,7 +37,6 @@ const Menu: React.FC<MenuProps> = ({ active, setActive }) => {
             active === item.id
               ? "bg-[#B7A261] text-white dark:text-black"
               : "bg-[#FEF6DD] dark:bg-[#3B3729] text-black dark:text-[#A89D9D]",
-            index === 0 ? "ml-3" : ""
           )}
           onClick={() => setActive(item.id)}
         >
