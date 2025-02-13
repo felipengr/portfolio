@@ -28,31 +28,12 @@ import FeatureCard from "./cards/FeatureCard";
 import EducationCard from "./cards/EducationCard";
 import ExperienceCard from "./cards/ExperienceCard";
 import ProjectCard from "./cards/ProjectCard";
+import { SkillItem } from "./SkillItem";
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
 
-const PRIMARY_COLOR = "#B7A261";
-const DARK_PRIMARY_COLOR = "#4B3D10";
 const ICON_SIZE = 60;
 const ICON_CONTAINER_SIZE = "w-14 h-14";
-
-const SkillIconContainer = ({ children }: { children: React.ReactNode }) => (
-  <div
-    className={`border rounded-md border-[${PRIMARY_COLOR}] dark:border-[${DARK_PRIMARY_COLOR}] shadow-[0px_0px_8px_2px_#F8DF91] dark:shadow-[0px_0px_8px_2px_#EFE0B2] p-4`}
-  >
-    {children}
-  </div>
-);
-
-interface SkillItemProps {
-  icon: React.ReactNode;
-  label: string;
-}
-
-const SkillItem: React.FC<SkillItemProps> = ({ icon, label }) => (
-  <div className="flex flex-col gap-2 items-center justify-center">
-    <SkillIconContainer>{icon}</SkillIconContainer>
-    <p className="text-black dark:text-white font-semibold">{label}</p>
-  </div>
-);
 
 interface ContentDisplayProps {
   activeSection: string;
@@ -84,10 +65,10 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
       });
 
       if (response.ok) {
-        alert("Email enviado com sucesso!");
+        alert("Email sent successfully!");
       } else {
         const errorData = await response.json();
-        setErrorMessage(errorData.error || "Falha ao enviar o email. Por favor, tente novamente.");
+        setErrorMessage(errorData.error || "Failed to send email. Please try again.");
       }
     } catch (error) {
       console.error(error)
@@ -98,7 +79,7 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
 
   if (activeSection === "contact") {
     return (
-      <div className="w-full p-6 max-w-screen-md mx-auto rounded-xl shadow-md bg-white dark:bg-black border-2 border-[#B7A261] transition-opacity mb-7 duration-300">
+      <div className="w-full p-6 max-w-screen-md mx-auto rounded-xl shadow-md bg-white dark:bg-black border-2 border-[#B7A261] transition-opacity duration-300 mb-6">
         <h2 className="text-xl text-black dark:text-white font-bold">
           Contact
         </h2>
@@ -116,7 +97,9 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
       <div>
         <h2 className="text-xl text-black dark:text-white font-bold">About Me</h2>
         <p className="mt-3 dark:text-white text-black font-normal">
-          I entered the job market at the age of 16 in a financial company
+          {isLoading ? <Skeleton count={5} /> :
+          <>
+            I entered the job market at the age of 16 in a financial company
           specializing in payroll loans. After completing my journalism degree in
           Ouro Preto, I returned to São Paulo and ended up going back to the
           financial sector at Banco BMG as a business consultant.
@@ -133,6 +116,7 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
           <br /> <br />
           In 2024, I truly began working more frequently with back-end development
           and took on the role of Full Stack Developer within the AR&Co. projects.
+          </> }
         </p>
 
         <h2 className="text-xl text-black dark:text-white font-bold mt-5">
@@ -262,6 +246,8 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
       <div>
         <h2 className="text-xl text-black dark:text-white font-bold">Skills</h2>
         <div className="flex flex-wrap gap-6 w-full mt-9">
+          { isLoading ? (<Skeleton count={10} />) : 
+          <>
           <SkillItem
             icon={
               <FcAndroidOs
@@ -271,7 +257,7 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
               />
             }
             label="Android"
-          />
+            />
           <SkillItem
             icon={
               <FaReact
@@ -372,6 +358,7 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             }
             label="Sass"
           />
+        </> }
         </div>
 
         <h2 className="text-xl text-black dark:text-white font-bold mt-8">
@@ -379,6 +366,8 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
         </h2>
 
         <div className="flex flex-wrap gap-6 w-full mt-9">
+        { isLoading ? (<Skeleton count={8} />) : 
+         <>
           <SkillItem
             icon={
               <SiVtex
@@ -459,13 +448,14 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             }
             label="GTM"
           />
+          </>}
         </div>
       </div>
     ),
   };
 
   return (
-    <div className="p-6 max-w-screen-md mx-auto sm:mt-4 rounded-xl mb-6 shadow-md bg-white dark:bg-black border-2 border-[#B7A261] transition-opacity duration-300">
+    <div className="p-6 max-w-screen-md min-w-full sm:min-w-0  mx-auto sm:mt-4 rounded-xl mb-6 shadow-md bg-white dark:bg-black border-2 border-[#B7A261] transition-opacity duration-300">
       {contentData[activeSection as keyof typeof contentData]}
     </div>
   );

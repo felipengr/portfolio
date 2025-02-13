@@ -27,7 +27,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <div
         className={`p-6 border flex flex-col items-center justify-center border-[${PRIMARY_COLOR}] dark:border-[${DARK_PRIMARY_COLOR}] bg-[#F9F6EA] dark:bg-[#403D32] rounded-md`}
       >
-        <div className="w-[309px] h-[177px] border border-black dark:border-white rounded-md relative overflow-hidden">
+        <div className="w-60 sm:w-[309px] h-[177px] border border-black dark:border-white rounded-md relative overflow-hidden">
           {isLoading ? (
             <Skeleton width={309} height={177} />
           ) : (
