@@ -23,7 +23,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
   isLoading = false,
 }) => (
   <div className={`flex items-center justify-start border-2 border-[${PRIMARY_COLOR}] rounded-md p-5`}>
-    <div className={`w-[88px] h-[88px] border border-[${PRIMARY_COLOR}] rounded-md relative overflow-hidden`}>
+    <div className={`w-[88px] min-w-[88px] h-[88px] border border-[${PRIMARY_COLOR}] rounded-md relative overflow-hidden`}>
       {isLoading ? (
         <Skeleton circle width={88} height={88} />
       ) : (

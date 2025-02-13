@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 interface ContactFormProps {
   onSubmit: (data: { email: string; subject: string; message: string }) => Promise<void>;
@@ -12,6 +12,14 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    if (!isSubmitting && !errorMessage) {
+      setEmail("");
+      setSubject("");
+      setMessage("");
+    }
+  }, [isSubmitting, errorMessage])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

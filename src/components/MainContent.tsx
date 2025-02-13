@@ -1,3 +1,4 @@
+// App/Components/MainContent.tsx
 "use client";
 
 import React, { useState } from "react";
@@ -12,7 +13,7 @@ const MainContent = () => {
       className={`
         w-full
         flex 
-        items-center 
+        items-center // REMOVER AQUI
         justify-center 
         flex-col               
         sm:flex-row-reverse              
