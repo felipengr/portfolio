@@ -97,26 +97,25 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
       <div>
         <h2 className="text-xl text-black dark:text-white font-bold">About Me</h2>
         <p className="mt-3 dark:text-white text-black font-normal">
-          {isLoading ? <Skeleton count={5} /> :
           <>
             I entered the job market at the age of 16 in a financial company
-          specializing in payroll loans. After completing my journalism degree in
-          Ouro Preto, I returned to São Paulo and ended up going back to the
-          financial sector at Banco BMG as a business consultant.
-          <br /> <br />
-          During the pandemic, I started studying programming and quickly fell in
-          love with it. I learn every day, and as a front-end developer, my
-          skills are constantly tested.
-          <br /> <br />
-          In March 2021, I had my first opportunity as a developer at Corebiz,
-          where I worked until June 2022. I then took on the position of
-          Specialist Developer at Maztra on a dedicated project using the VTEX IO
-          platform. There, I was able to enhance my skills in ReactJS, using
-          TypeScript and Next, and even some Node.js.
-          <br /> <br />
-          In 2024, I truly began working more frequently with back-end development
-          and took on the role of Full Stack Developer within the AR&Co. projects.
-          </> }
+            specializing in payroll loans. After completing my journalism degree in
+            Ouro Preto, I returned to São Paulo and ended up going back to the
+            financial sector at Banco BMG as a business consultant.
+            <br /> <br />
+            During the pandemic, I started studying programming and quickly fell in
+            love with it. I learn every day, and as a front-end developer, my
+            skills are constantly tested.
+            <br /> <br />
+            In March 2021, I had my first opportunity as a developer at Corebiz,
+            where I worked until June 2022. I then took on the position of
+            Specialist Developer at Maztra on a dedicated project using the VTEX IO
+            platform. There, I was able to enhance my skills in ReactJS, using
+            TypeScript and Next, and even some Node.js.
+            <br /> <br />
+            In 2024, I truly began working more frequently with back-end development
+            and took on the role of Full Stack Developer within the AR&Co. projects.
+          </>
         </p>
 
         <h2 className="text-xl text-black dark:text-white font-bold mt-5">
@@ -129,7 +128,6 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             altText="Work in computer"
             title="Web Front-End Development"
             description="With a robust proficiency in React.js, I excel at transforming design concepts into dynamic, user-friendly websites."
-            isLoading={isLoading}
             priority={true}
           />
           <FeatureCard
@@ -137,7 +135,6 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             altText="Work in phone"
             title="App Development"
             description="With expertise in React Native, I transform design concepts into high-performance, user-friendly apps."
-            isLoading={isLoading}
             priority={true}
           />
           <FeatureCard
@@ -145,7 +142,6 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             altText="Back-end Development"
             title="Back-End Development"
             description="With expertise in Node.js and GraphQL, I build scalable, efficient, and high-performance back-end systems."
-            isLoading={isLoading}
             priority={true}
           />
           <FeatureCard
@@ -153,7 +149,6 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
             altText="VTEX Development"
             title="VTEX Development"
             description="With expertise in VTEX and e-commerce, I develop scalable, high-performing online stores."
-            isLoading={isLoading}
             priority={true}
           />
         </div>
