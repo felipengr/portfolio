@@ -1,6 +1,5 @@
 "use client";
 
-import Script from 'next/script';
 import React, { useEffect, useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha"
 
@@ -26,20 +25,15 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
     }
   }, [isSubmitting, errorMessage])
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    grecaptcha.ready(async () => {
-      const token = await grecaptcha.execute(pubKeyGoogle, { action: 'submit' })
-      fetch('/send-email', { method: 'POST', body: JSON.stringify({ token }) })
-    })
-
+  
     if (!recaptchaToken) {
-      alert('Please confirm that you are not a robot.');
+      alert("Please complete the reCAPTCHA verification.");
       return;
     }
-
-    onSubmit({ email, subject, message, recaptchaToken });
+  
+    await onSubmit({ email, subject, message, recaptchaToken });
   };
 
   const PRIMARY_COLOR = "#B7A261";
@@ -110,7 +104,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
 
         <div className='mb-4'>
           <ReCAPTCHA
-            sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ?? ""}
+            sitekey={pubKeyGoogle ?? ""}
             onChange={(token: string | null) => setRecaptchaToken(token)}
           />
         </div>
@@ -125,8 +119,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
           </button>
         </div>
       </form>
-
-      <Script src={`https://www.google.com/recaptcha/api.js?render=${pubKeyGoogle}`} />
     </>
   );
 };
