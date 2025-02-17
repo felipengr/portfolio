@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import ReCAPTCHA from "react-google-recaptcha"
 
 interface ContactFormProps {
   onSubmit: (data: { email: string; subject: string; message: string; recaptchaToken: string }) => Promise<void>;
@@ -15,7 +14,19 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
   const [message, setMessage] = useState("");
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
-  const pubKeyGoogle = '6Lc_WNkqAAAAAEW6gTE6pvEdDGDly0iY9Ls0yaCD'
+  const pubKeyGoogle = '6Lc_WNkqAAAAAEW6gTE6pvEdDGDly0iY9Ls0yaCD';
+
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?render=${pubKeyGoogle}`;
+    script.async = true;
+    script.defer = true;
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, [pubKeyGoogle]);
 
   useEffect(() => {
     if (!isSubmitting && !errorMessage) {
@@ -27,14 +38,21 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(recaptchaToken)
-    
-    if (!recaptchaToken) {
-      alert("Please complete the reCAPTCHA verification.");
-      return;
+
+    if (typeof grecaptcha !== "undefined") {
+      grecaptcha.ready(async () => {
+        const token = await grecaptcha.execute(pubKeyGoogle, { action: 'submit' });
+        setRecaptchaToken(token); 
+
+        if (token) {
+          await onSubmit({ email, subject, message, recaptchaToken: token }); 
+          console.error(recaptchaToken)
+          alert("Erro ao obter o token reCAPTCHA.");
+        }
+      });
+    } else {
+      alert("reCAPTCHA ainda não carregado. Tente novamente.");
     }
-  
-    await onSubmit({ email, subject, message, recaptchaToken });
   };
 
   const PRIMARY_COLOR = "#B7A261";
@@ -101,13 +119,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
             onChange={(e) => setMessage(e.target.value)}
             required
           ></textarea>
-        </div>
-
-        <div className='mb-4'>
-          <ReCAPTCHA
-            sitekey={pubKeyGoogle ?? ""}
-            onChange={(token: string | null) => setRecaptchaToken(token)}
-          />
         </div>
 
         <div className="flex items-center justify-between">
