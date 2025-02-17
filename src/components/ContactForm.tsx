@@ -27,7 +27,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+    console.log(recaptchaToken)
+    
     if (!recaptchaToken) {
       alert("Please complete the reCAPTCHA verification.");
       return;
