@@ -26,10 +26,17 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    grecaptcha.ready(async () => {
+      const token = await grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' })
+      fetch('/send-email', { method: 'POST', body: JSON.stringify({ token }) })
+    })
+
     if (!recaptchaToken) {
-      alert("Please confirm that you are not a robot.")
+      alert('Please confirm that you are not a robot.');
       return;
     }
+
     onSubmit({ email, subject, message, recaptchaToken });
   };
 

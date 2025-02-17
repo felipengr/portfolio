@@ -12,12 +12,17 @@ export async function POST(req: Request) {
         }
 
         const recaptchaResponse = await fetch(
-            `https://www.google.com/recaptcha/api/siteverify?secret=${RECAPTCHA_SECRET}&response=${recaptchaToken}`,
-            { method: "POST" }
+            `https://www.google.com/recaptcha/api/siteverify`, {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `secret=${RECAPTCHA_SECRET}&response=${recaptchaToken}`
+            }
         );
 
         const recaptchaData = await recaptchaResponse.json();
-
+        
         if (!recaptchaData.success || (recaptchaData.score !== undefined && recaptchaData.score < 0.5)) {
             return NextResponse.json({ error: "reCAPTCHA verification failed" }, { status: 400 });
         }
