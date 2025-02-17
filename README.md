@@ -3,7 +3,7 @@
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/nogueirafelipe94/)
 [![Website](https://img.shields.io/badge/Website-Visit-green?style=flat-square&logo=google-chrome)](https://nogueiradev.com.br)
 
-![Nogueira Dev Portfolio](print.png)
+![Nogueira Dev Portfolio](public/print.png)
 
 ## About
 
@@ -13,7 +13,7 @@ Hello! 👋 I'm Felipe Nogueira, a front-end developer passionate about creating
 
 Visit the live website at: [nogueiradev.com.br](https://nogueiradev.com.br)
 
-[![Navigation](print.png)](https://drive.google.com/file/d/1vPF9oQ0mDjE0-0h9cT295FbCRfbyIje-/view?usp=drive_link)
+[![Navigation](public/print.png)](https://drive.google.com/file/d/1vPF9oQ0mDjE0-0h9cT295FbCRfbyIje-/view?usp=drive_link)
 *Demonstration of website navigation and key features*
 
 ## Technologies Used
@@ -43,7 +43,7 @@ This website uses Google reCAPTCHA v3 to protect the contact form from spam and 
 1.  Clone the repository:
 
     ```bash
-    git clone [URL of your repository]
+    git clone https://github.com/felipengr/portfolio.git
     ```
 
 2.  Install dependencies:
@@ -81,7 +81,7 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 ## Contact
 
-*   **LinkedIn:** [Your LinkedIn profile](https://www.linkedin.com/in/nogueirafelipe94/)
+*   **LinkedIn:** [Felipe Nogueira LinkedIn](https://www.linkedin.com/in/nogueirafelipe94/)
 *   **Email:** [felipenogueira.94@gmail.com](mailto:felipenogueira.94@gmail.com)
 *   **Phone:** [+55 11 97408-4935](wa.me/5511974084935)
 *   **Website:** [nogueiradev.com.br](https://nogueiradev.com.br)
