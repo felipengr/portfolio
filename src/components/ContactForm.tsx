@@ -16,6 +16,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
   const [message, setMessage] = useState("");
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
+  const pubKeyGoogle = '6Lc_WNkqAAAAAEW6gTE6pvEdDGDly0iY9Ls0yaCD'
+
   useEffect(() => {
     if (!isSubmitting && !errorMessage) {
       setEmail("");
@@ -28,7 +30,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
     e.preventDefault();
     
     grecaptcha.ready(async () => {
-      const token = await grecaptcha.execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY, { action: 'submit' })
+      const token = await grecaptcha.execute(pubKeyGoogle, { action: 'submit' })
       fetch('/send-email', { method: 'POST', body: JSON.stringify({ token }) })
     })
 
@@ -124,7 +126,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
         </div>
       </form>
 
-      <Script src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`} />
+      <Script src={`https://www.google.com/recaptcha/api.js?render=${pubKeyGoogle}`} />
     </>
   );
 };
