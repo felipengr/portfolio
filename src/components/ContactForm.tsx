@@ -45,7 +45,8 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
         setRecaptchaToken(token); 
 
         if (token) {
-          await onSubmit({ email, subject, message, recaptchaToken: token }); 
+          await onSubmit({ email, subject, message, recaptchaToken: token });   
+        } else {
           console.error(recaptchaToken)
           alert("Erro ao obter o token reCAPTCHA.");
         }

@@ -56,9 +56,7 @@ export async function POST(req: Request) {
             text: `Remetente: ${email}\n\nMensagem:\n${message}` 
         };
 
-        console.log("🔹 Enviando e-mail...");
         await transporter.sendMail(mailOptions);
-        console.log("✅ E-mail enviado com sucesso!");
 
         return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
 
