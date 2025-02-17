@@ -72,12 +72,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
             htmlFor="email"
             className="block text-black dark:text-white text-sm font-bold mb-2"
           >
-            Endereço de Email
+            Email Address
           </label>
           <input
             type="email"
             id="email"
-            placeholder="Seu email"
+            placeholder="Your email"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-black dark:text-white bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -90,12 +90,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
             htmlFor="subject"
             className="block text-black dark:text-white text-sm font-bold mb-2"
           >
-            Assunto
+            Subject
           </label>
           <input
             type="text"
             id="subject"
-            placeholder="Assunto"
+            placeholder="Subject"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-black dark:text-white bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
@@ -108,11 +108,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
             htmlFor="message"
             className="block text-black dark:text-white text-sm font-bold mb-2"
           >
-            Mensagem
+            Message
           </label>
           <textarea
             id="message"
-            placeholder="Sua mensagem"
+            placeholder="Your message"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-black dark:text-white bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
             rows={5}
             value={message}
@@ -127,7 +127,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
             type="submit"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Enviando..." : "Enviar"}
+            {isSubmitting ? "Sending..." : "Submit"}
           </button>
         </div>
       </form>
