@@ -1,83 +1,89 @@
-"use client";
+'use client'
 
-import React, { useState, useEffect } from "react";
-import { FcAndroidOs } from "react-icons/fc";
+import React, { useState, useEffect } from 'react'
 import {
-  FaReact,
   FaAws,
-  FaHtml5,
-  FaSass,
-  FaGithub,
   FaDocker,
-} from "react-icons/fa";
-import { LiaNode } from "react-icons/lia";
+  FaGithub,
+  FaHtml5,
+  FaReact,
+  FaSass,
+} from 'react-icons/fa'
+import { FcAndroidOs } from 'react-icons/fc'
+import { GrGraphQl } from 'react-icons/gr'
+import { LiaNode } from 'react-icons/lia'
+import { PiFigmaLogoFill } from 'react-icons/pi'
 import {
-  SiNextdotjs,
   SiExpo,
+  SiGoogleanalytics,
+  SiGoogletagmanager,
+  SiJirasoftware,
+  SiNextdotjs,
   SiTailwindcss,
   SiVtex,
-  SiGoogleanalytics,
-  SiJirasoftware,
-  SiGoogletagmanager,
-} from "react-icons/si";
-import { GrGraphQl } from "react-icons/gr";
-import { PiFigmaLogoFill } from "react-icons/pi";
-import { VscAzureDevops } from "react-icons/vsc";
-import ContactForm from "./ContactForm";
-import FeatureCard from "./cards/FeatureCard";
-import EducationCard from "./cards/EducationCard";
-import ExperienceCard from "./cards/ExperienceCard";
-import ProjectCard from "./cards/ProjectCard";
-import { SkillItem } from "./SkillItem";
-import Skeleton from 'react-loading-skeleton';
+} from 'react-icons/si'
+import { VscAzureDevops } from 'react-icons/vsc'
+import Skeleton from 'react-loading-skeleton'
+import ContactForm from './ContactForm'
+import { SkillItem } from './SkillItem'
+import EducationCard from './cards/EducationCard'
+import ExperienceCard from './cards/ExperienceCard'
+import FeatureCard from './cards/FeatureCard'
+import ProjectCard from './cards/ProjectCard'
 import 'react-loading-skeleton/dist/skeleton.css'
 
-const ICON_SIZE = 60;
-const ICON_CONTAINER_SIZE = "w-14 h-14";
+const ICON_SIZE = 60
+const ICON_CONTAINER_SIZE = 'w-14 h-14'
 
 interface ContentDisplayProps {
-  activeSection: string;
+  activeSection: string
 }
 
 const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
-  const [isSubmitting, setIsSubmitting] = React.useState(false);
-  const [errorMessage, setErrorMessage] = React.useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = React.useState(false)
+  const [errorMessage, setErrorMessage] = React.useState<string | null>(null)
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     setTimeout(() => {
-      setIsLoading(false);
+      setIsLoading(false)
     }, 800)
-  }, [activeSection])
+  }, [])
 
-  const handleSubmit = async (data: { email: string; subject: string; message: string }) => {
-    setIsSubmitting(true);
-    setErrorMessage(null);
+  const handleSubmit = async (data: {
+    email: string
+    subject: string
+    message: string
+  }) => {
+    setIsSubmitting(true)
+    setErrorMessage(null)
 
     try {
-      const response = await fetch("/api/send-email", {
-        method: "POST",
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
-      });
+      })
 
       if (response.ok) {
-        alert("Email sent successfully!");
+        alert('Email sent successfully!')
       } else {
-        const errorData = await response.json();
-        setErrorMessage(errorData.error || "Failed to send email. Please try again.");
+        const errorData = await response.json()
+        setErrorMessage(
+          errorData.error || 'Failed to send email. Please try again.'
+        )
       }
     } catch (error) {
       console.error(error)
     } finally {
-      setIsSubmitting(false);
+      setIsSubmitting(false)
     }
-  };
+  }
 
-  if (activeSection === "contact") {
+  if (activeSection === 'contact') {
     return (
       <div className="w-full p-6 max-w-screen-md mx-auto rounded-xl shadow-md bg-white dark:bg-black border-2 border-[#B7A261] transition-opacity duration-300 mb-6">
         <h2 className="text-xl text-black dark:text-white font-bold">
@@ -89,32 +95,35 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
           errorMessage={errorMessage}
         />
       </div>
-    );
+    )
   }
 
   const contentData = {
     about: (
       <div>
-        <h2 className="text-xl text-black dark:text-white font-bold">About Me</h2>
+        <h2 className="text-xl text-black dark:text-white font-bold">
+          About Me
+        </h2>
         <p className="mt-3 dark:text-white text-black font-normal">
           <>
             I entered the job market at the age of 16 in a financial company
-            specializing in payroll loans. After completing my journalism degree in
-            Ouro Preto, I returned to São Paulo and ended up going back to the
-            financial sector at Banco BMG as a business consultant.
+            specializing in payroll loans. After completing my journalism degree
+            in Ouro Preto, I returned to São Paulo and ended up going back to
+            the financial sector at Banco BMG as a business consultant.
             <br /> <br />
-            During the pandemic, I started studying programming and quickly fell in
-            love with it. I learn every day, and as a front-end developer, my
+            During the pandemic, I started studying programming and quickly fell
+            in love with it. I learn every day, and as a front-end developer, my
             skills are constantly tested.
             <br /> <br />
             In March 2021, I had my first opportunity as a developer at Corebiz,
             where I worked until June 2022. I then took on the position of
-            Specialist Developer at Maztra on a dedicated project using the VTEX IO
-            platform. There, I was able to enhance my skills in ReactJS, using
-            TypeScript and Next, and even some Node.js.
+            Specialist Developer at Maztra on a dedicated project using the VTEX
+            IO platform. There, I was able to enhance my skills in ReactJS,
+            using TypeScript and Next, and even some Node.js.
             <br /> <br />
-            In 2024, I truly began working more frequently with back-end development
-            and took on the role of Full Stack Developer within the AR&Co. projects.
+            In 2024, I truly began working more frequently with back-end
+            development and took on the role of Full Stack Developer within the
+            AR&Co. projects.
           </>
         </p>
 
@@ -245,119 +254,122 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
       <div>
         <h2 className="text-xl text-black dark:text-white font-bold">Skills</h2>
         <div className="flex flex-wrap gap-6 w-full mt-9">
-          { isLoading ? (<Skeleton count={10} />) : 
-          <>
-          <SkillItem
-            icon={
-              <FcAndroidOs
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={ICON_CONTAINER_SIZE}
+          {isLoading ? (
+            <Skeleton count={10} />
+          ) : (
+            <>
+              <SkillItem
+                icon={
+                  <FcAndroidOs
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={ICON_CONTAINER_SIZE}
+                  />
+                }
+                label="Android"
               />
-            }
-            label="Android"
-            />
-          <SkillItem
-            icon={
-              <FaReact
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#61DAFB]`}
+              <SkillItem
+                icon={
+                  <FaReact
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#61DAFB]`}
+                  />
+                }
+                label="React JS"
               />
-            }
-            label="React JS"
-          />
-          <SkillItem
-            icon={
-              <LiaNode
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#8bc500]`}
+              <SkillItem
+                icon={
+                  <LiaNode
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#8bc500]`}
+                  />
+                }
+                label="Node Js"
               />
-            }
-            label="Node Js"
-          />
-          <SkillItem
-            icon={
-              <SiNextdotjs
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#000] dark:text-white`}
+              <SkillItem
+                icon={
+                  <SiNextdotjs
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#000] dark:text-white`}
+                  />
+                }
+                label="Next.js"
               />
-            }
-            label="Next.js"
-          />
-          <SkillItem
-            icon={
-              <SiExpo
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#000] dark:text-white`}
+              <SkillItem
+                icon={
+                  <SiExpo
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#000] dark:text-white`}
+                  />
+                }
+                label="Expo"
               />
-            }
-            label="Expo"
-          />
-          <SkillItem
-            icon={
-              <GrGraphQl
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#f6009b]`}
+              <SkillItem
+                icon={
+                  <GrGraphQl
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#f6009b]`}
+                  />
+                }
+                label="GraphQL"
               />
-            }
-            label="GraphQL"
-          />
-          <SkillItem
-            icon={
-              <FaReact
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#61DAFB]`}
+              <SkillItem
+                icon={
+                  <FaReact
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#61DAFB]`}
+                  />
+                }
+                label="React Native"
               />
-            }
-            label="React Native"
-          />
-          <SkillItem
-            icon={
-              <FaAws
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#000] dark:text-white`}
+              <SkillItem
+                icon={
+                  <FaAws
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#000] dark:text-white`}
+                  />
+                }
+                label="AWS"
               />
-            }
-            label="AWS"
-          />
-          <SkillItem
-            icon={
-              <FaHtml5
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#f26529]`}
+              <SkillItem
+                icon={
+                  <FaHtml5
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#f26529]`}
+                  />
+                }
+                label="HTML5"
               />
-            }
-            label="HTML5"
-          />
-          <SkillItem
-            icon={
-              <SiTailwindcss
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#00bcff]`}
+              <SkillItem
+                icon={
+                  <SiTailwindcss
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#00bcff]`}
+                  />
+                }
+                label="Tailwind CSS"
               />
-            }
-            label="Tailwind CSS"
-          />
-          <SkillItem
-            icon={
-              <FaSass
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#d26999]`}
+              <SkillItem
+                icon={
+                  <FaSass
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#d26999]`}
+                  />
+                }
+                label="Sass"
               />
-            }
-            label="Sass"
-          />
-        </> }
+            </>
+          )}
         </div>
 
         <h2 className="text-xl text-black dark:text-white font-bold mt-8">
@@ -365,99 +377,102 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
         </h2>
 
         <div className="flex flex-wrap gap-6 w-full mt-9">
-        { isLoading ? (<Skeleton count={8} />) : 
-         <>
-          <SkillItem
-            icon={
-              <SiVtex
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#ff3365]`}
+          {isLoading ? (
+            <Skeleton count={8} />
+          ) : (
+            <>
+              <SkillItem
+                icon={
+                  <SiVtex
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#ff3365]`}
+                  />
+                }
+                label="VTEX"
               />
-            }
-            label="VTEX"
-          />
-          <SkillItem
-            icon={
-              <PiFigmaLogoFill
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#f24e1e]`}
+              <SkillItem
+                icon={
+                  <PiFigmaLogoFill
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#f24e1e]`}
+                  />
+                }
+                label="Figma"
               />
-            }
-            label="Figma"
-          />
-          <SkillItem
-            icon={
-              <SiGoogleanalytics
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#ffae01]`}
+              <SkillItem
+                icon={
+                  <SiGoogleanalytics
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#ffae01]`}
+                  />
+                }
+                label="GA4"
               />
-            }
-            label="GA4"
-          />
-          <SkillItem
-            icon={
-              <FaGithub
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#000] dark:text-white`}
+              <SkillItem
+                icon={
+                  <FaGithub
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#000] dark:text-white`}
+                  />
+                }
+                label="Github"
               />
-            }
-            label="Github"
-          />
-          <SkillItem
-            icon={
-              <FaDocker
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#086dd7]`}
+              <SkillItem
+                icon={
+                  <FaDocker
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#086dd7]`}
+                  />
+                }
+                label="Docker"
               />
-            }
-            label="Docker"
-          />
-          <SkillItem
-            icon={
-              <SiJirasoftware
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#217af4]`}
+              <SkillItem
+                icon={
+                  <SiJirasoftware
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#217af4]`}
+                  />
+                }
+                label="Jira"
               />
-            }
-            label="Jira"
-          />
-          <SkillItem
-            icon={
-              <VscAzureDevops
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#0a7adc]`}
+              <SkillItem
+                icon={
+                  <VscAzureDevops
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#0a7adc]`}
+                  />
+                }
+                label="Azure DevOps"
               />
-            }
-            label="Azure DevOps"
-          />
-          <SkillItem
-            icon={
-              <SiGoogletagmanager
-                width={ICON_SIZE}
-                height={ICON_SIZE}
-                className={`${ICON_CONTAINER_SIZE} text-[#8eb3f8]`}
+              <SkillItem
+                icon={
+                  <SiGoogletagmanager
+                    width={ICON_SIZE}
+                    height={ICON_SIZE}
+                    className={`${ICON_CONTAINER_SIZE} text-[#8eb3f8]`}
+                  />
+                }
+                label="GTM"
               />
-            }
-            label="GTM"
-          />
-          </>}
+            </>
+          )}
         </div>
       </div>
     ),
-  };
+  }
 
   return (
     <div className="p-6 max-w-screen-md min-w-full sm:min-w-0  mx-auto sm:mt-4 rounded-xl mb-6 shadow-md bg-white dark:bg-black border-2 border-[#B7A261] transition-opacity duration-300">
       {contentData[activeSection as keyof typeof contentData]}
     </div>
-  );
-};
+  )
+}
 
-export default ContentDisplay;
+export default ContentDisplay

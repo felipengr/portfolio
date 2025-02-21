@@ -1,6 +1,9 @@
 declare interface Grecaptcha {
-    ready: (cb: () => void) => void;
-    execute: (secret: string | undefined, config: any) => Promise<string>;
+  ready: (cb: () => void) => void
+  execute: (
+    secret: string | undefined,
+    config: Record<string>
+  ) => Promise<string>
 }
 
-declare const grecaptcha: Grecaptcha;
+declare const grecaptcha: Grecaptcha

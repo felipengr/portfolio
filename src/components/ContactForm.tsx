@@ -1,70 +1,85 @@
-"use client";
+'use client'
 
-import React, { useEffect, useState } from 'react';
+import type React from 'react'
+import { useEffect, useState } from 'react'
 
 interface ContactFormProps {
-  onSubmit: (data: { email: string; subject: string; message: string; recaptchaToken: string }) => Promise<void>;
-  isSubmitting: boolean;
-  errorMessage: string | null;
+  onSubmit: (data: {
+    email: string
+    subject: string
+    message: string
+    recaptchaToken: string
+  }) => Promise<void>
+  isSubmitting: boolean
+  errorMessage: string | null
 }
 
-const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, errorMessage }) => {
-  const [email, setEmail] = useState("");
-  const [subject, setSubject] = useState("");
-  const [message, setMessage] = useState("");
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+const ContactForm: React.FC<ContactFormProps> = ({
+  onSubmit,
+  isSubmitting,
+  errorMessage,
+}) => {
+  const [email, setEmail] = useState('')
+  const [subject, setSubject] = useState('')
+  const [message, setMessage] = useState('')
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null)
 
-  const pubKeyGoogle = '6Lc_WNkqAAAAAEW6gTE6pvEdDGDly0iY9Ls0yaCD';
+  const pubKeyGoogle = '6Lc_WNkqAAAAAEW6gTE6pvEdDGDly0iY9Ls0yaCD'
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = `https://www.google.com/recaptcha/api.js?render=${pubKeyGoogle}`;
-    script.async = true;
-    script.defer = true;
-    document.head.appendChild(script);
+    const script = document.createElement('script')
+    script.src = `https://www.google.com/recaptcha/api.js?render=${pubKeyGoogle}`
+    script.async = true
+    script.defer = true
+    document.head.appendChild(script)
 
     return () => {
-      document.head.removeChild(script);
-    };
-  }, [pubKeyGoogle]);
+      document.head.removeChild(script)
+    }
+  }, [])
 
   useEffect(() => {
     if (!isSubmitting && !errorMessage) {
-      setEmail("");
-      setSubject("");
-      setMessage("");
+      setEmail('')
+      setSubject('')
+      setMessage('')
     }
   }, [isSubmitting, errorMessage])
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
 
-    if (typeof grecaptcha !== "undefined") {
+    if (typeof grecaptcha !== 'undefined') {
       grecaptcha.ready(async () => {
-        const token = await grecaptcha.execute(pubKeyGoogle, { action: 'submit' });
-        setRecaptchaToken(token); 
+        const token: string = await grecaptcha.execute(pubKeyGoogle, {
+          action: 'submit',
+        })
+        setRecaptchaToken(token)
 
         if (token) {
-          await onSubmit({ email, subject, message, recaptchaToken: token });   
+          await onSubmit({ email, subject, message, recaptchaToken: token })
         } else {
           console.error(recaptchaToken)
-          alert("Erro ao obter o token reCAPTCHA.");
+          alert('Erro ao obter o token reCAPTCHA.')
         }
-      });
+      })
     } else {
-      alert("reCAPTCHA ainda não carregado. Tente novamente.");
+      alert('reCAPTCHA ainda não carregado. Tente novamente.')
     }
-  };
+  }
 
-  const PRIMARY_COLOR = "#B7A261";
-  const DARK_PRIMARY_COLOR = "#4B3D10";
-  const DARK_SECONDARY_COLOR = "#60594B";
+  const PRIMARY_COLOR = '#B7A261'
+  const DARK_PRIMARY_COLOR = '#4B3D10'
+  const DARK_SECONDARY_COLOR = '#60594B'
 
   return (
     <>
       <form onSubmit={handleSubmit} className="w-full">
         {errorMessage && (
-          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
+          <div
+            className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4"
+            role="alert"
+          >
             <span className="block sm:inline">{errorMessage}</span>
           </div>
         )}
@@ -81,7 +96,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
             placeholder="Your email"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-black dark:text-white bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
             required
           />
         </div>
@@ -99,7 +114,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
             placeholder="Subject"
             className="shadow appearance-none border rounded w-full py-2 px-3 text-black dark:text-white bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
             value={subject}
-            onChange={(e) => setSubject(e.target.value)}
+            onChange={e => setSubject(e.target.value)}
             required
           />
         </div>
@@ -117,7 +132,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
             className="shadow appearance-none border rounded w-full py-2 px-3 text-black dark:text-white bg-white dark:bg-gray-800 leading-tight focus:outline-none focus:shadow-outline"
             rows={5}
             value={message}
-            onChange={(e) => setMessage(e.target.value)}
+            onChange={e => setMessage(e.target.value)}
             required
           ></textarea>
         </div>
@@ -128,12 +143,12 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSubmit, isSubmitting, error
             type="submit"
             disabled={isSubmitting}
           >
-            {isSubmitting ? "Sending..." : "Submit"}
+            {isSubmitting ? 'Sending...' : 'Submit'}
           </button>
         </div>
       </form>
     </>
-  );
-};
+  )
+}
 
-export default ContactForm;
+export default ContactForm
