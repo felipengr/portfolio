@@ -1,21 +1,21 @@
-import React from "react";
-import Image from "next/image";
+import Image from 'next/image'
+import React from 'react'
 import {
-    FaGithub,
-    FaLinkedin,
-    FaEnvelope,
-    FaPhone,
-    FaMapMarkedAlt,
-    FaBirthdayCake,
-    FaInstagram,
-} from "react-icons/fa";
+  FaBirthdayCake,
+  FaEnvelope,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaMapMarkedAlt,
+  FaPhone,
+} from 'react-icons/fa'
 
 const ProfileCard = () => {
-    const ICON_SIZE = 16;
+  const ICON_SIZE = 16
 
-    return (
-        <div
-            className={`
+  return (
+    <div
+      className={`
                 relative
                 bg-white 
                 dark:bg-[#131312] 
@@ -33,8 +33,9 @@ const ProfileCard = () => {
                 mt-6
                 sm:mt-0
             `}
-        >
-                <div className = {`
+    >
+      <div
+        className={`
                     relative
                     w-[150px]
                     h-[150px]
@@ -50,7 +51,8 @@ const ProfileCard = () => {
                     md:-translate-x-1/2
                     md:w-[200px]
                     md:h-[200px]
-                 `}>
+                 `}
+      >
         <Image
           src="/avatar.jpg"
           alt="Avatar"
@@ -60,77 +62,77 @@ const ProfileCard = () => {
           priority
         />
       </div>
-       
-            <div className="text-center mt-4 sm:mt-36">
-                <h2 className="text-xl sm:text-2xl font-bold text-[#4b3d10] dark:text-[#b7a261]">
-                    Felipe Nogueira
-                </h2>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
-                    Full Stack Developer
-                </p>
-            </div>
 
-            <div className="flex justify-center gap-4 mt-4">
-                <a
-                    href="https://github.com/felipengr"
-                    className="text-[#4B3D10] hover:text-[#B7A261] dark:text-[#B7A261] dark:hover:text-[#4B3D10]"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <FaGithub size={24} />
-                </a>
+      <div className="text-center mt-4 sm:mt-36">
+        <h2 className="text-xl sm:text-2xl font-bold text-[#4b3d10] dark:text-[#b7a261]">
+          Felipe Nogueira
+        </h2>
+        <p className="text-sm text-gray-600 dark:text-gray-400">
+          Full Stack Developer
+        </p>
+      </div>
 
-                <a
-                    href="https://www.linkedin.com/in/nogueirafelipe94/"
-                    className="text-[#4B3D10] hover:text-[#B7A261] dark:text-[#B7A261] dark:hover:text-[#4B3D10]"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <FaLinkedin size={24} />
-                </a>
+      <div className="flex justify-center gap-4 mt-4">
+        <a
+          href="https://github.com/felipengr"
+          className="text-[#4B3D10] hover:text-[#B7A261] dark:text-[#B7A261] dark:hover:text-[#4B3D10]"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaGithub size={24} />
+        </a>
 
-                <a
-                    href="https://www.instagram.com/flpnogueira/"
-                    className="text-[#4B3D10] hover:text-[#B7A261] dark:text-[#B7A261] dark:hover:text-[#4B3D10]"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <FaInstagram size={24} />
-                </a>
+        <a
+          href="https://www.linkedin.com/in/nogueirafelipe94/"
+          className="text-[#4B3D10] hover:text-[#B7A261] dark:text-[#B7A261] dark:hover:text-[#4B3D10]"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaLinkedin size={24} />
+        </a>
 
-                <a
-                    href="mailto:felipenogueira.94@gmail.com"
-                    className="text-[#4B3D10] hover:text-[#B7A261] dark:text-[#B7A261] dark:hover:text-[#4B3D10]"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <FaEnvelope size={24} />
-                </a>
-            </div>
+        <a
+          href="https://www.instagram.com/flpnogueira/"
+          className="text-[#4B3D10] hover:text-[#B7A261] dark:text-[#B7A261] dark:hover:text-[#4B3D10]"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaInstagram size={24} />
+        </a>
 
-            <div className="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
-                <div className="flex items-center gap-2 text-[#4b3d10] dark:text-[#b7a261]">
-                    <FaPhone size={ICON_SIZE} />
-                    <span>+55 11 97408-4935</span>
-                </div>
+        <a
+          href="mailto:felipenogueira.94@gmail.com"
+          className="text-[#4B3D10] hover:text-[#B7A261] dark:text-[#B7A261] dark:hover:text-[#4B3D10]"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <FaEnvelope size={24} />
+        </a>
+      </div>
 
-                <div className="flex items-center gap-2 text-[#4b3d10] dark:text-[#b7a261]">
-                    <FaEnvelope size={ICON_SIZE} />
-                    <span>felipenogueira.94@gmail.com</span>
-                </div>
-
-                <div className="flex items-center gap-2 text-[#4b3d10] dark:text-[#b7a261]">
-                    <FaMapMarkedAlt size={ICON_SIZE} />
-                    <span>Piracaia, SP - Brazil</span>
-                </div>
-
-                <div className="flex items-center gap-2 text-[#4b3d10] dark:text-[#b7a261]">
-                    <FaBirthdayCake size={ICON_SIZE} />
-                    <span>01/19/1994</span>
-                </div>
-            </div>
+      <div className="mt-4 space-y-2 text-gray-700 dark:text-gray-300">
+        <div className="flex items-center gap-2 text-[#4b3d10] dark:text-[#b7a261]">
+          <FaPhone size={ICON_SIZE} />
+          <span>+55 11 97408-4935</span>
         </div>
-    );
-};
 
-export default ProfileCard;
+        <div className="flex items-center gap-2 text-[#4b3d10] dark:text-[#b7a261]">
+          <FaEnvelope size={ICON_SIZE} />
+          <span>felipenogueira.94@gmail.com</span>
+        </div>
+
+        <div className="flex items-center gap-2 text-[#4b3d10] dark:text-[#b7a261]">
+          <FaMapMarkedAlt size={ICON_SIZE} />
+          <span>Piracaia, SP - Brazil</span>
+        </div>
+
+        <div className="flex items-center gap-2 text-[#4b3d10] dark:text-[#b7a261]">
+          <FaBirthdayCake size={ICON_SIZE} />
+          <span>01/19/1994</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default ProfileCard

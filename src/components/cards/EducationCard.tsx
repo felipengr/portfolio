@@ -1,12 +1,12 @@
-import React from "react";
+import type React from 'react'
 
 interface EducationCardProps {
-  years: string;
-  title: string;
-  institution: string;
+  years: string
+  title: string
+  institution: string
 }
 
-const PRIMARY_COLOR = "#B7A261";
+const PRIMARY_COLOR = '#B7A261'
 
 const EducationCard: React.FC<EducationCardProps> = ({
   years,
@@ -18,6 +18,6 @@ const EducationCard: React.FC<EducationCardProps> = ({
     <p className="font-bold text-black dark:text-white">{title}</p>
     <p className="text-black dark:text-white">{institution}</p>
   </div>
-);
+)
 
-export default EducationCard;
+export default EducationCard

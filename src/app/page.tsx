@@ -1,9 +1,8 @@
-// app/page.tsx
-"use client";
+'use client'
 
-import MainContent from "@/components/MainContent";
-import ProfileCard from "@/components/ProfileCard";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
+import MainContent from '@/components/MainContent'
+import ProfileCard from '@/components/ProfileCard'
+import ThemeSwitcher from '@/components/ThemeSwitcher'
 
 export default function Home() {
   return (
@@ -29,5 +28,5 @@ export default function Home() {
       <MainContent />
       <ThemeSwitcher />
     </main>
-  );
+  )
 }

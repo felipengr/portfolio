@@ -1,18 +1,18 @@
-import React from "react";
-import Image from "next/image";
-import Skeleton from 'react-loading-skeleton';
+import Image from 'next/image'
+import type React from 'react'
+import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 interface ProjectCardProps {
-  href: string;
-  imageSrc: string;
-  altText: string;
-  title: string;
-  isLoading?: boolean;
+  href: string
+  imageSrc: string
+  altText: string
+  title: string
+  isLoading?: boolean
 }
 
-const PRIMARY_COLOR = "#B7A261";
-const DARK_PRIMARY_COLOR = "#4B3D10";
+const PRIMARY_COLOR = '#B7A261'
+const DARK_PRIMARY_COLOR = '#4B3D10'
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   href,
@@ -21,7 +21,6 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   title,
   isLoading = false,
 }) => {
-
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">
       <div
@@ -36,7 +35,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
               alt={altText}
               fill
               sizes="(max-width: 768px) 100vw, 309px"
-              style={{ objectFit: "cover" }}
+              style={{ objectFit: 'cover' }}
               className="object-top"
             />
           )}
@@ -50,7 +49,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
       </div>
     </a>
-  );
-};
+  )
+}
 
-export default ProjectCard;
+export default ProjectCard

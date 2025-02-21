@@ -1,0 +1,27 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Biome Format",
+      "type": "shell",
+      "command": "npx biome format --write ${file}",
+      "group": "none",
+      "presentation": {
+        "reveal": "silent"
+      },
+      "runOn": "save",
+      "problemMatcher": []
+    },
+    {
+      "label": "Biome Check",
+      "type": "shell",
+      "command": "npx biome check --apply ${file}",
+      "group": "none",
+      "presentation": {
+        "reveal": "silent"
+      },
+      "runOn": "save",
+      "problemMatcher": []
+    }
+  ]
+}

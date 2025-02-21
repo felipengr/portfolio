@@ -1,12 +1,11 @@
-// App/Components/MainContent.tsx
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import Menu from "./Menu";
-import ContentDisplay from "./ContentDisplay";
+import React, { useState } from 'react'
+import ContentDisplay from './ContentDisplay'
+import Menu from './Menu'
 
 const MainContent = () => {
-  const [activeSection, setActiveSection] = useState("about");
+  const [activeSection, setActiveSection] = useState('about')
 
   return (
     <div
@@ -24,7 +23,7 @@ const MainContent = () => {
       <Menu active={activeSection} setActive={setActiveSection} />
       <ContentDisplay activeSection={activeSection} />
     </div>
-  );
-};
+  )
+}
 
-export default MainContent;
+export default MainContent

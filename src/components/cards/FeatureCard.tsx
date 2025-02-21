@@ -1,20 +1,20 @@
-import React from "react";
-import Image from "next/image";
-import Skeleton from 'react-loading-skeleton';
+import Image from 'next/image'
+import type React from 'react'
+import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 interface FeatureCardProps {
-  imageSrc: string;
-  altText: string;
-  title: string;
-  description: string;
-  isLoading?: boolean;
-  priority: boolean;
+  imageSrc: string
+  altText: string
+  title: string
+  description: string
+  isLoading?: boolean
+  priority: boolean
 }
 
-const PRIMARY_COLOR = "#B7A261";
-const SECONDARY_COLOR = "#FDF4F4";
-const DARK_SECONDARY_COLOR = "#60594B";
+const PRIMARY_COLOR = '#B7A261'
+const SECONDARY_COLOR = '#FDF4F4'
+const DARK_SECONDARY_COLOR = '#60594B'
 
 const FeatureCard: React.FC<FeatureCardProps> = ({
   imageSrc,
@@ -37,7 +37,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
             alt={altText}
             fill
             sizes="(max-width: 768px) 100vw, 116px"
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: 'cover' }}
             className="object-top"
             priority={priority}
           />
@@ -48,7 +48,9 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
           {isLoading ? (
             <Skeleton width={150} />
           ) : (
-            <h3 className="font-bold text-lg text-black dark:text-white">{title}</h3>
+            <h3 className="font-bold text-lg text-black dark:text-white">
+              {title}
+            </h3>
           )}
         </div>
         <div>
@@ -63,7 +65,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default FeatureCard;
+export default FeatureCard
