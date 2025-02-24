@@ -219,32 +219,35 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ activeSection }) => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-7">
-          <ProjectCard
-            href="https://github.com/felipengr/nearby"
-            imageSrc="/nearby.jpg"
-            altText="Nearby App"
-            title="Nearby App (React Native)"
+        <ProjectCard
+            repoName={encodeURIComponent("nlw-connect-node")}
+            imageSrc='/nlw-connect-node.jpg'
+            isLoading={isLoading}
+          />
+
+<ProjectCard
+            repoName={encodeURIComponent("nlw-connect-web")}
+            imageSrc='/nlw-connect.jpg'
             isLoading={isLoading}
           />
           <ProjectCard
-            href="https://github.com/felipengr/DT-Money"
-            imageSrc="/dtMoney.jpg"
-            altText="DT Money"
-            title="DT Money (React + Typescript)"
+            repoName={encodeURIComponent("nearby")}
+            imageSrc='/nearby.jpg'
             isLoading={isLoading}
           />
           <ProjectCard
-            href="https://github.com/felipengr/igniteTeams"
-            imageSrc="/igniteTeams.jpg"
-            altText="Ignite Teams"
-            title="Ignite Teams (React + Typescript)"
+            repoName={encodeURIComponent("DT-Money")}
+            imageSrc='/dtMoney.jpg'
             isLoading={isLoading}
           />
           <ProjectCard
-            href="https://github.com/felipengr/daily-diet"
-            imageSrc="/dailyDiet.jpg"
-            altText="Daily Diet"
-            title="Daily Diet (React + Typescript)"
+            repoName={encodeURIComponent("igniteTeams")}
+            imageSrc='/igniteTeams.jpg'
+            isLoading={isLoading}
+          />
+          <ProjectCard
+            repoName={encodeURIComponent("daily-diet")}
+            imageSrc='/dailyDiet.jpg'
             isLoading={isLoading}
           />
         </div>
